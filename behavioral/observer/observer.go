@@ -3,7 +3,7 @@ package observer
 import "fmt"
 
 type Observer interface {
-	update(string)
+	notify(string)
 	getID() string
 }
 
@@ -45,7 +45,7 @@ func (i *Item) updateAvailability() {
 
 func (i *Item) notifyAll() {
 	for _, observer := range i.observerList {
-		observer.update(i.name)
+		observer.notify(i.name)
 	}
 }
 
@@ -61,7 +61,7 @@ func removeFromSlice(observerList []Observer, observerToRemove Observer) []Obser
 	return observerList
 }
 
-func (c *Customer) update(itemName string) {
+func (c *Customer) notify(itemName string) {
 	fmt.Printf("Sending email to customer %s for item %s\n", c.id, itemName)
 }
 
