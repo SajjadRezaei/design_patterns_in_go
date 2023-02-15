@@ -1,10 +1,13 @@
 package main
 
-import "idpay/backend/paterns/behavioral/observer"
+import (
+	"idpay/backend/paterns/concurrency/piplines"
+)
 
 func main() {
+	piplines.Run()
 
-	observer.Run()
+	//observer.Run()
 	//composite pattern
 	//composite.Run()
 
